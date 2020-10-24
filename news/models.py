@@ -6,6 +6,8 @@ from django.conf import settings
 from django.dispatch import receiver
 from ckeditor.fields import RichTextField
 
+
+
 def upload_location(instance, filename):
     file_path = 'blog/{author_id}/{title}-filename'.format(
         author_id=str(instance.author.id), title=str(instance.title), filename=filename

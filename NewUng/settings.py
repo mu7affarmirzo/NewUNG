@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'news',
+    'news.apps.NewsConfig',
     'ckeditor',
+    'tenders.apps.TendersConfig',
 ]
 
 MIDDLEWARE = [
@@ -126,8 +127,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static_cdn'),
-    os.path.join(BASE_DIR, 'media_cdn'),
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'media'),
 ]
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
