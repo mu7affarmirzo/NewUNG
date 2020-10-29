@@ -34,6 +34,26 @@ class BlogPost(models.Model):
     def __str__(self):
         return self.title
 
+# class OpenD(models.Model):
+#     CATEGORY = (
+#         ('Logistics', 'Logistika'),
+#         ('Economy', 'Ekonomika va moliya'),
+#         ('Digging', 'Dobicha'),
+#         ('Geology', 'Geologiya'),
+#
+#     )
+#
+#     title = models.CharField(max_length=100, null=False, blank=False)
+#     body = RichTextField(blank=True, null=True)
+#     author = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='category', on_delete=models.CASCADE)
+#     category = models.CharField(max_length=10, choices=CATEGORY)
+#     file = models.FileField(upload_to=upload_location, null=True, blank=True)
+#
+#     def __str__(self):
+#         return self.title
+
+
+
 @receiver(post_delete, sender = BlogPost)
 def submission_delete(sender, instance, **kwargs):
     instance.image.delete(False)

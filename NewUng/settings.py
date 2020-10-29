@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'news.apps.NewsConfig',
     'ckeditor',
     'tenders.apps.TendersConfig',
+    'ungfiles.apps.UngfilesConfig',
 ]
 
 MIDDLEWARE = [
