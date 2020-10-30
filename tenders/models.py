@@ -8,7 +8,7 @@ from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
 
 def upload_location(instance, filename):
-    file_path = 'tender/{author_id}/{title}-filename'.format(
+    file_path = 'tender/{author_id}/{title}-{filename}'.format(
         author_id=str(instance.author.id), title=str(instance.title), filename=filename
     )
     return file_path
@@ -18,7 +18,7 @@ def upload_location(instance, filename):
 class Tender(models.Model):
 
     title = models.CharField(max_length=100, null=False, blank=False)
-    items = RichTextField(blank=True, null=True)
+    # items = RichTextField(blank=True, null=True)
     asosiy_talablar = RichTextField(blank=True, null=True)
     file = models.FileField(upload_to=upload_location, null=False, blank=False)
     date_published = models.DateTimeField(auto_now_add=True, verbose_name="date_published")
@@ -29,6 +29,10 @@ class Tender(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def tenderlots(self):
+        return self.tenderlot_set.all()
 
 class TenderLot(models.Model):
     tender = models.ForeignKey(Tender, on_delete=models.CASCADE)

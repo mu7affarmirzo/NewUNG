@@ -32,6 +32,9 @@ if DEBUG:
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
+    'ckeditor',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,10 +43,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'news.apps.NewsConfig',
-    'ckeditor',
     'tenders.apps.TendersConfig',
     'ungfiles.apps.UngfilesConfig',
+
 ]
+#
+# REST_FRAMEWORK = {
+#     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+#     'PAGE_SIZE': 3,
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -128,8 +136,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'media'),
+    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "media"),
 ]
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
