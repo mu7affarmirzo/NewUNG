@@ -32,8 +32,10 @@ if DEBUG:
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'rest_framework',
     'ckeditor',
+    # 'uzbplaces',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -56,6 +58,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -132,8 +135,35 @@ USE_L10N = True
 USE_TZ = True
 
 
+gettext = lambda s: s
+LANGUAGES = (
+    # ('uz', gettext('Uzbek')),
+    ('ru', gettext('Russian')),
+    ('en', gettext('English')),
+    ('de', gettext('Deautch')),
+)
+# EXTRA_LANG_INFO = {
+#     'uz': {
+#         'bidi': False,
+#         'code': 'uz',
+#         'name': 'Uzbek',
+#         'name_local': u"O'zbek",
+#     },
+# }
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+CKEDITOR_JQUERY_URL =    '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+    'toolbar': 'None',
+
+    },
+}
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
