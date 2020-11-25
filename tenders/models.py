@@ -24,7 +24,7 @@ class Tender(models.Model):
     date_published = models.DateTimeField(auto_now_add=True, verbose_name="date_published")
     date_updated = models.DateTimeField(auto_now=True, verbose_name="date_updated")
     slug = models.SlugField(blank=True, unique=True)
-    author = models.ForeignKey(User, related_name='tender_created', on_delete=models.CASCADE)
+    # author = models.ForeignKey(User, related_name='tender_created', on_delete=models.CASCADE)
 
 
     def __str__(self):

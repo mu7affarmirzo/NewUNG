@@ -6,7 +6,12 @@ class TenderLotSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TenderLot
-        fields = ['tender', 'name', 'description', 'price', 'id']
+        fields = ['tender',
+                  'name_ru', 'name_de', 'name_en',
+                  'description_ru', 'description_de', 'description_en',
+                  'price',
+                  'id'
+                  ]
 
 
 class TenderSerializer(serializers.ModelSerializer):
@@ -14,4 +19,9 @@ class TenderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Tender
-        fields = ['title', 'asosiy_talablar', 'file', 'date_published', 'author', 'tenderlots']
+        fields = ['title_ru', 'title_de', 'title_en',
+                  'asosiy_talablar_ru', 'asosiy_talablar_de', 'asosiy_talablar_en',
+                  'file',
+                  'date_published',
+                  'tenderlots'
+                  ]
