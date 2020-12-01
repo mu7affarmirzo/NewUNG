@@ -9,8 +9,8 @@ from ckeditor.fields import RichTextField
 
 
 def upload_location(instance, filename):
-    file_path = 'blog/{author_id}/{title}-{filename}'.format(
-        author_id=str(instance.author.id), title=str(instance.title), filename=filename
+    file_path = 'blog/3/{title}-{filename}'.format(
+        title=str(instance.title), filename=filename
     )
     return file_path
 
